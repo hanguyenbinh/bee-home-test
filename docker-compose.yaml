@@ -1,0 +1,35 @@
+version: "3"
+
+services:    
+    bee_backend:
+        build:
+            context: .
+        ports:
+            - '3000:3000'
+        tty: true
+        environment:
+            - NODE_ENV=development
+            - MONGO_URI=mongodb://mongodb/bee-assignment
+        volumes:
+            # - ./upload:/home/node/app/upload
+            - ./public:/home/node/app/public
+            
+        networks:
+            - bee_network
+        links:
+            - mongodb            
+        depends_on:
+            - mongodb            
+    mongodb:
+        image: mongo:6-jammy
+        ports:
+            - '27017:27017'
+        volumes:
+            - dbdata6:/data/db
+        networks:
+            - bee_network    
+volumes:
+    dbdata6:
+        driver: local    
+networks:
+    bee_network:

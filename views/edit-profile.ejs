@@ -1,0 +1,76 @@
+<%- include('partials/prologue.ejs', {title: `MBTI | Boo Personality Database`, description: `What is MBTI personality
+  type? Find out what Myers Briggs, Enneagram, and Zodiac sign are in the Soulverse, the MBTI personality database of
+  celebrities and fictional characters.`}) %>
+
+  <div class="row sqs-row">
+    <%- include('partials/categories.ejs') %>
+      <div class="col sqs-col-10 sqs-col-page">
+        <div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-2e6206ba777e9c6841a8">
+          <div class="sqs-block-content">
+            <h2 class="name"><span style="color: #4edcd8; font-weight: bold">Add new Profile</span>
+            </h2>
+          </div>
+        </div>
+        <form action="/update-profile/<%= profile._id %>" method="post">
+          <div class="row">
+            <div class="col "><label for="name">Name:</label></div>
+            <div class="col "><input type="text" name="name" value="<%= profile.name %>" required></div>
+          </div>
+          <div class="row">
+            <div class="col "><label for="lastname">Description: </label></div>
+            <div class="col "><input type="text" name="description" value="<%= profile.description %>" required></div>
+          </div>
+          <div class="row">
+            <div class="col "><label for="mbti">MBTI </label></div>
+            <div class="col "><select name="mbti" id="mbti">
+              <option value="infj" <%= profile.mbti === 'infj' ? 'selected':'' %>>INFJ - The Guardian</option>
+              <option value="infp" <%= profile.mbti === 'infj' ? 'selected':'' %>>INFP - The Peacemaker</option>
+              <option value="enfj" <%= profile.mbti === 'enfj' ? 'selected':'' %>>ENFJ - The Hero</option>
+              <option value="enfp" <%= profile.mbti === 'enfp' ? 'selected':'' %>>ENFP - The Crusader</option>
+              <option value="intj" <%= profile.mbti === 'intj' ? 'selected':'' %>>INTJ - The Mastermind</option>
+              <option value="intp" <%= profile.mbti === 'intp' ? 'selected':'' %>>INTP - The Genius</option>
+              <option value="entj" <%= profile.mbti === 'entj' ? 'selected':'' %>>ENTJ - The Commander</option>
+              <option value="entp" <%= profile.mbti === 'entp' ? 'selected':'' %>>ENTP - The Challenger</option>
+              <option value="isfj" <%= profile.mbti === 'isfj' ? 'selected':'' %>>ISFJ - The Protector</option>
+              <option value="isfp" <%= profile.mbti === 'isfp' ? 'selected':'' %>>ISFP - The Artist</option>
+              <option value="esfj" <%= profile.mbti === 'esfj' ? 'selected':'' %>>ESFJ - The Ambassador</option>
+              <option value="esfp" <%= profile.mbti === 'esfp' ? 'selected':'' %>>ESFP - The Performer</option>
+              <option value="istj" <%= profile.mbti === 'istj' ? 'selected':'' %>>ISTJ - The Realist</option>
+              <option value="istp" <%= profile.mbti === 'istp' ? 'selected':'' %>>ISTP - The Artisan</option>
+              <option value="estj" <%= profile.mbti === 'estj' ? 'selected':'' %>>ESTJ - The Executive</option>
+              <option value="estp" <%= profile.mbti === 'estp' ? 'selected':'' %>>ESTP - The Rebel</option>
+            </select></div>
+          </div>
+          <div class="row">
+            <div class="col "><label for="enneagram">Enneagram: </label></div>
+            <div class="col "><input type="text" name="enneagram" value="<%= profile.enneagram %>" required></div>
+          </div>
+          <div class="row">
+            <div class="col "><label for="variant">Variant: </label></div>
+            <div class="col "><input type="text" name="variant" value="<%= profile.variant %>" required></div>
+          </div>
+          <div class="row">
+            <div class="col "><label for="tritype">Tritype: </label></div>
+            <div class="col "><input type="text" name="tritype" value="<%= profile.tritype %>" required></div>
+          </div>
+          <div class="row">
+            <div class="col "><label for="socionics">Socionics: </label></div>
+            <div class="col "><input type="text" name="socionics" value="<%= profile.socionics %>" required></div>
+          </div>
+          <div class="row">
+            <div class="col "><label for="sloan">Sloan: </label></div>
+            <div class="col "><input type="text" name="sloan" value="<%= profile.sloan %>" required></div>
+          </div>
+          <div class="row">
+            <div class="col "><label for="psyche">Psyche: </label></div>
+            <div class="col "><input type="text" name="psyche" value="<%= profile.psyche %>" required></div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Update Profile">
+          </div>
+      </div>
+      </form>
+  </div>
+  </div>
+
+  <%- include('partials/epilogue.ejs') %>

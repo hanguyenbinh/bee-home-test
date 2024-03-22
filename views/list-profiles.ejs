@@ -1,0 +1,83 @@
+<%- include('partials/prologue.ejs', {title: `MBTI | Boo Personality Database`, description: `What is MBTI personality
+  type? Find out what Myers Briggs, Enneagram, and Zodiac sign are in the Soulverse, the MBTI personality database of
+  celebrities and fictional characters.`}) %>
+
+  <div class="row sqs-row">
+    <%- include('partials/categories.ejs') %>
+      <div class="col sqs-col-10 sqs-col-page">
+        <div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-2e6206ba777e9c6841a8">
+          <div class="sqs-block-content">
+            <h2 class="name"><span style="color: #4edcd8; font-weight: bold">All profiles</span>
+            </h2>
+          </div>
+        </div>
+        <div class="row" style="column-count: 11;column-gap: normal">
+          <div>
+            Name
+          </div>
+          <div>
+            Description
+          </div>
+          <div>
+            MBTI
+          </div>
+          <div>
+            Enneagram
+          </div>
+          <div>
+            Variant
+          </div>
+          <div>
+            Tritype
+          </div>
+          <div>
+            Socionics
+          </div>
+          <div>
+            Sloan
+          </div>
+          <div>
+            Psyche
+          </div>
+          <div>Image</div>
+          <div>Action</div>
+
+        </div>
+        <% for(var i=0; i<profiles.length; i++) {%>
+          <div class="row" style="column-count: 11;column-gap: normal">
+            <div>
+              <%= profiles[i].name %>
+            </div>
+            <div>
+              <%= profiles[i].description %>
+            </div>
+            <div>
+              <%= profiles[i].mbti %>
+            </div>
+            <div>
+              <%= profiles[i].enneagram %>
+            </div>
+            <div>
+              <%= profiles[i].variant %>
+            </div>
+            <div>
+              <%= profiles[i].tritype %>
+            </div>
+            <div>
+              <%= profiles[i].socionics %>
+            </div>
+            <div>
+              <%= profiles[i].sloan %>
+            </div>
+            <div>
+              <%= profiles[i].psyche %>
+            </div>
+            <div><img class="picture" src="<%= profiles[i].psyche %>"></div>
+            <div><a href="edit-profile/<%= profiles[i]._id %>">Edit</a><a href="view-profile/<%= profiles[i]._id %>">View</a></div>
+
+          </div>
+          <% } %>
+      </div>
+  </div>
+
+  <%- include('partials/epilogue.ejs') %>

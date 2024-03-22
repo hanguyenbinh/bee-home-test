@@ -5,5 +5,6 @@ npm i
 docker-compose up mongodb -d
 - start dev backend:
 npm run start:dev
+access the frontend at local: localhost:3000
 - run test: 
 npm run test
